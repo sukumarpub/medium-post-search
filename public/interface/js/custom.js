@@ -1,15 +1,11 @@
-
 $(document).ready(function() {
 
 	$("#searchBox").keyup(function() {
-		//document.getElementById("results").innerHTML="";
-
 	
 		if($(this).val().trim(" ").length > 2) {
  			var searchTerm = $(this).val().trim(" ");
 			var searchResults = "";
 			document.getElementById("results").innerHTML="";
-			
 			
 			var data = {};
 			data.search = searchTerm;
@@ -18,8 +14,7 @@ $(document).ready(function() {
 				type: 'POST',
 				data: JSON.stringify(data),
 				contentType: 'application/json',
-				url: 'http://searchmed-myfirstdemo.rhcloud.com/search',
-				//url: 'http://localhost:3000/search',	
+				url: 'http://localhost:8080/interface',	
 				
 				success: function(data) {
 					console.log('success');
@@ -34,14 +29,10 @@ $(document).ready(function() {
 					}
 				}
 				});
-
-
-	
 		}
 		else {
 			document.getElementById("results").innerHTML="";
 		}
-
 
 	});
 });
