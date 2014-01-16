@@ -17,26 +17,23 @@ app.post('/search', function(req, res){
 console.log('req.body.search = '+req.body.search);
 var searchTerm = req.body.search;
 
-if(searchTerm.trim(" ").length > 2) {
-	var searchTerm = searchTerm.trim(" ");
-	var searchResults = "";
-	for (var j in postsData.posts) {
+	if(searchTerm.trim(" ").length > 2) {
+		var searchTerm = searchTerm.trim(" ");
+		var searchResults = "";
+		for (var j in postsData.posts) {
 			
-		if(postsData.posts[j].title.search(new RegExp(searchTerm, "i")) < 0 ) {
+			if(postsData.posts[j].title.search(new RegExp(searchTerm, "i")) < 0 ) {
 					//do nothing;
-		}
-		else {
+			}
+			else {
 			var postDate = new Date(postsData.posts[j].postLastUpdated.$date)
 			searchResults+="<h4 class='post-item-title'><a  href='"+postsData.posts[j].postLink+"'>"+postsData.posts[j].title+"</a></h4>";
 			searchResults+='<a class="post-item-snippet" href="'+postsData.posts[j].postLink+'"><p>'+postsData.posts[j].snippetText+'</p>';
-		}
- 	}
+			}
+ 		}
 
-
-//console.log('body: ' + JSON.stringify(postsData.posts[0].title));
-res.send(searchResults);
-
-}
+		res.send(searchResults);
+	}
 
 });
  
