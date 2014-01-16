@@ -1,4 +1,4 @@
-var shepherd = require("shepherd")
+var shepherd = require("shepherd");
 var fs = require("fs");
 var cheerio = require("cheerio");
 var mongoose = require('mongoose');
@@ -42,7 +42,7 @@ function saveToDb(newTitle, newPostLink,newPostLastUpdated,newSnippet ) {
 					console.log(err);
 				else {
 					console.log(post);
-					console.log("entered post.save");
+					//console.log("entered post.save");
 				}
 			});
 		}
