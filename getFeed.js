@@ -27,7 +27,7 @@ function saveToDb(newTitle, newPostLink,newPostLastUpdated,newSnippet ) {
 		title: newTitle,
 		postLink: newPostLink,
 		postLastUpdated: new Date(newPostLastUpdated),
-		snippetText:	newSnippet
+		snippetText: newSnippet
 	});
 
 	mediumPosts.findOne({ title: newTitle }, function(err, article) {
